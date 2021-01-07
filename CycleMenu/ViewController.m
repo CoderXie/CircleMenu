@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import "RQCycleMenu.h"
 
-@interface ViewController ()
+@interface ViewController ()<RQCycleMenuDelegate>
 
 @end
 
@@ -28,7 +28,13 @@
     RQCycleMenu *menu = [[RQCycleMenu alloc] initWithFrame:CGRectMake(0 , CGRectGetHeight(self.view.frame)-radius, CGRectGetWidth(self.view.frame), radius) menuItems:dataArray];
     menu.radius = radius - 70;
     menu.maxMenuCount = 20;
+    menu.delegate = self;
     [self.view addSubview:menu];
+}
+
+- (void)cycleMenu:(RQCycleMenu *)menu didSelectAtIndex:(NSInteger)index
+{
+    NSLog(@"%d",index);
 }
 
 @end

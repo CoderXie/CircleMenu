@@ -62,7 +62,6 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     self.imageView.highlighted = YES;
-    NSLog(@"began");
     if ([_delegate respondsToSelector:@selector(cycleMenuItemTouchesBegan:)])
     {
        [_delegate cycleMenuItemTouchesBegan:self];
@@ -71,7 +70,6 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"moved");
     CGPoint location = [[touches anyObject] locationInView:self];
     if (!CGRectContainsPoint(self.bounds , location))
     {
@@ -81,7 +79,6 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"ended");
     self.imageView.highlighted = NO;
     CGPoint location = [[touches anyObject] locationInView:self];
     if (CGRectContainsPoint(self.bounds, location))

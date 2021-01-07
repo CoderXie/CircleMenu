@@ -79,6 +79,7 @@
         CGFloat Oy = self.frame.size.height;
         CGFloat angle = 2 * M_PI / maxMenuCount * i + M_PI + 2 * M_PI / maxMenuCount * 3;
         RQCycleMenuItem *item = self.menuItems[i];
+        item.delegate = self;
         item.tag = 1000 + i;
         item.center = CGPointMake(Ox + self.radius * cos(angle),
                                   Oy + self.radius * sin(angle));
