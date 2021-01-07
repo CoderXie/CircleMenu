@@ -16,6 +16,8 @@
 		8423852B25A40399009671A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423852A25A40399009671A4 /* main.m */; };
 		8423853525A40399009671A4 /* CycleMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423853425A40399009671A4 /* CycleMenuTests.m */; };
 		8423854025A40399009671A4 /* CycleMenuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423853F25A40399009671A4 /* CycleMenuUITests.m */; };
+		8423855325A403B9009671A4 /* RQCycleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423855225A403B9009671A4 /* RQCycleMenu.m */; };
+		8423855925A403EB009671A4 /* RQCycleMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423855825A403EB009671A4 /* RQCycleMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		8423853B25A40399009671A4 /* CycleMenuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CycleMenuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8423853F25A40399009671A4 /* CycleMenuUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleMenuUITests.m; sourceTree = "<group>"; };
 		8423854125A40399009671A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8423855125A403B9009671A4 /* RQCycleMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RQCycleMenu.h; sourceTree = "<group>"; };
+		8423855225A403B9009671A4 /* RQCycleMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RQCycleMenu.m; sourceTree = "<group>"; };
+		8423855725A403EB009671A4 /* RQCycleMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RQCycleMenuItem.h; sourceTree = "<group>"; };
+		8423855825A403EB009671A4 /* RQCycleMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RQCycleMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 		8423851725A40397009671A4 /* CycleMenu */ = {
 			isa = PBXGroup;
 			children = (
+				8423855025A403A2009671A4 /* RQCycleMenu */,
 				8423851825A40397009671A4 /* AppDelegate.h */,
 				8423851925A40397009671A4 /* AppDelegate.m */,
 				8423851B25A40397009671A4 /* SceneDelegate.h */,
@@ -135,6 +142,17 @@
 				8423854125A40399009671A4 /* Info.plist */,
 			);
 			path = CycleMenuUITests;
+			sourceTree = "<group>";
+		};
+		8423855025A403A2009671A4 /* RQCycleMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8423855125A403B9009671A4 /* RQCycleMenu.h */,
+				8423855225A403B9009671A4 /* RQCycleMenu.m */,
+				8423855725A403EB009671A4 /* RQCycleMenuItem.h */,
+				8423855825A403EB009671A4 /* RQCycleMenuItem.m */,
+			);
+			path = RQCycleMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +287,8 @@
 				8423852025A40397009671A4 /* ViewController.m in Sources */,
 				8423851A25A40397009671A4 /* AppDelegate.m in Sources */,
 				8423852B25A40399009671A4 /* main.m in Sources */,
+				8423855925A403EB009671A4 /* RQCycleMenuItem.m in Sources */,
+				8423855325A403B9009671A4 /* RQCycleMenu.m in Sources */,
 				8423851D25A40397009671A4 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +462,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94CER85W8E;
 				INFOPLIST_FILE = CycleMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +481,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94CER85W8E;
 				INFOPLIST_FILE = CycleMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
