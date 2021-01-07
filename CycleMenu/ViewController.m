@@ -29,7 +29,6 @@
     menu.radius = radius - 70;
     menu.maxMenuCount = 20;
     [self.view addSubview:menu];
-    [menu open];
 }
 
 @end

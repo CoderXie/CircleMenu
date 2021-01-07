@@ -7,7 +7,7 @@
 
 #import "RQCycleMenu.h"
 
-@interface RQCycleMenu ()<UIScrollViewDelegate>
+@interface RQCycleMenu ()<UIScrollViewDelegate,RQCycleMenuItemDelegate>
 @property (nonatomic, strong) UIScrollView *contentView;
 @end
 
@@ -41,6 +41,7 @@
     if (_menuItems != menuItems) {
         _menuItems = [menuItems copy];
         [self _resetScrollViewContentSize];
+        [self _setMenu];
     }
 }
 
@@ -49,6 +50,7 @@
     if (_radius != radius) {
         _radius = radius;
         [self _resetScrollViewContentSize];
+        [self _setMenu];
     }
 }
 
@@ -57,6 +59,7 @@
     if (_maxMenuCount != maxMenuCount) {
         _maxMenuCount = maxMenuCount;
         [self _resetScrollViewContentSize];
+        [self _setMenu];
     }
 }
 
@@ -125,6 +128,7 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self _updateMenu];
@@ -132,7 +136,7 @@
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    NSLog(@"scrollViewWillEndDragging333333");
+//    NSLog(@"scrollViewWillEndDragging333333");
     const float dim = CGRectGetWidth(scrollView.frame);
     CGPoint point = [scrollView.panGestureRecognizer translationInView:scrollView];
     CGFloat s = [self _rubberBandClamp:point.x coeff:0.55 dim:dim];
@@ -143,6 +147,19 @@
     *targetContentOffset = CGPointMake(offset, targetContentOffset->y);
 }
 
+#pragma mark - RQCycleMenuDelegate
 
+- (void)cycleMenuItemTouchesBegan:(RQCycleMenuItem *)item
+{
+    
+}
+
+- (void)cycleMenuItemTouchesEnd:(RQCycleMenuItem *)item
+{
+    if ([_delegate respondsToSelector:@selector(cycleMenu:didSelectAtIndex:)])
+    {
+        [_delegate cycleMenu:self didSelectAtIndex:item.tag - 1000];
+    }
+}
 
 @end

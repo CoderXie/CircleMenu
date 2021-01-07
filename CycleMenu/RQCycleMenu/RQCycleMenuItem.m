@@ -34,7 +34,6 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont systemFontOfSize:12];
         _titleLabel.textColor = [UIColor colorWithWhite:1 alpha:0.65];
-//        _titleLabel.textColor = [UIColor colorWithWhite:0 alpha:1.f];
         _titleLabel.text = _title;
         [self addSubview:_titleLabel];
     }
@@ -64,36 +63,34 @@
 {
     self.imageView.highlighted = YES;
     NSLog(@"began");
-//    if ([_delegate respondsToSelector:@selector(AwesomeMenuItemTouchesBegan:)])
-//    {
-//       [_delegate AwesomeMenuItemTouchesBegan:self];
-//    }
+    if ([_delegate respondsToSelector:@selector(cycleMenuItemTouchesBegan:)])
+    {
+       [_delegate cycleMenuItemTouchesBegan:self];
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"moved");
-    // if move out of 2x rect, cancel highlighted.
-//    CGPoint location = [[touches anyObject] locationInView:self];
-//    if (!CGRectContainsPoint(ScaleRect(self.bounds, 2.0f), location))
-//    {
-//        self.highlighted = NO;
-//    }
+    CGPoint location = [[touches anyObject] locationInView:self];
+    if (!CGRectContainsPoint(self.bounds , location))
+    {
+        self.imageView.highlighted = NO;
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"ended");
     self.imageView.highlighted = NO;
-    // if stop in the area of 2x rect, response to the touches event.
-//    CGPoint location = [[touches anyObject] locationInView:self];
-//    if (CGRectContainsPoint(ScaleRect(self.bounds, 2.0f), location))
-//    {
-//        if ([_delegate respondsToSelector:@selector(AwesomeMenuItemTouchesEnd:)])
-//        {
-//            [_delegate AwesomeMenuItemTouchesEnd:self];
-//        }
-//    }
+    CGPoint location = [[touches anyObject] locationInView:self];
+    if (CGRectContainsPoint(self.bounds, location))
+    {
+        if ([_delegate respondsToSelector:@selector(cycleMenuItemTouchesEnd:)])
+        {
+            [_delegate cycleMenuItemTouchesEnd:self];
+        }
+    }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event

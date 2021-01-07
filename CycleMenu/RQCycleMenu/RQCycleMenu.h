@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol RQCycleMenuDelegate;
 @interface RQCycleMenu : UIView
 
 @property (nonatomic, copy) NSArray <RQCycleMenuItem *>*menuItems;
@@ -19,8 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger maxMenuCount;
 @property (nonatomic, assign) BOOL scrollEnabled;
 
+@property (nonatomic, weak) id<RQCycleMenuDelegate> delegate;
+
 - (id)initWithFrame:(CGRect)frame menuItems:(NSArray *)menuItems;
-- (void)open;
 
 @end
 
